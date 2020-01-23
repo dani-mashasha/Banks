@@ -7,7 +7,7 @@ const express = require('express');
 const app = express();
 
 
-app.use('/banks', require('./routes/Banks'))
+app.use('/', require('./routes/Banks'))
 
 
 

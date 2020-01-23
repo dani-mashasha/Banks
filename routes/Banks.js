@@ -2,11 +2,11 @@ const express = require('express');
 const router = express.Router();
 const readXmlFile = require('../xmlParser.js');
 
-async function getData() {
-    const data = await readXmlFile();
-    return data;
-}
-const data = getData();
+// async function getData() {
+//     const data = await readXmlFile();
+//     return data;
+// }
+// const data = getData();
 
 const banks = [
     {Bank_Name: "פועלים",
@@ -22,7 +22,7 @@ const banks = [
 
 ]
 
-router.get('/', (req, res) => res.json(data));
+router.get('/', (req, res) => res.json(banks));
 
 // router.get('/:Branch_Code', (req, res) => {
 //     res.json(banks.filter(bank => bank.Branch_Code === parseInt(req.params.Branch_Code) ))
@@ -30,7 +30,7 @@ router.get('/', (req, res) => res.json(data));
 // });
 
 router.get('/:Bank_Name', (req, res) => {
-    res.json(data.filter(bank => bank.Bank_Name === req.params.Bank_Name))
+    res.json(banks.filter(bank => bank.Bank_Name === req.params.Bank_Name))
 
 })
 
